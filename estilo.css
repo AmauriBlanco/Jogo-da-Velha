@@ -63,6 +63,7 @@ button:hover{
 .cell:not(:empty){
     pointer-events: none;
 }
+/*
 @media screen and (min-width :768px){
     .cell:hover{
         background-color: rgba(255, 255, 255, .1);
@@ -72,3 +73,4 @@ button:hover{
         opacity: .5;
     }
 }
+*/
