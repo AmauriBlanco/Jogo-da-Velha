@@ -32,6 +32,7 @@ button:hover{
 
 .game-body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -39,8 +40,8 @@ button:hover{
 }
 
 .board{
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
     font-size: 100px;
     font-weight: bold;
     text-align: center;
@@ -63,7 +64,39 @@ button:hover{
 .cell:not(:empty){
     pointer-events: none;
 }
-@media screen and (min-width :768px){
+h1{
+    
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+    font-size: 45px;
+    
+    font-weight: bold;
+    
+}
+#player{
+    padding: 16px 32px;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
+}
+.score{
+    display: inline;
+    font-size: 35px;
+    text-shadow: #c75987 0px 0px 1px;
+    font-weight: bold;
+    
+}
+.score td{
+    width: 30px;
+    padding: 10px 10px; 
+    align-items: center; 
+}
+/* #space{
+    width: 30px;
+} */
+
+
+/* @media screen and (max-width :468px){
     .cell:hover{
         background-color: rgba(255, 255, 255, .1);
     }
@@ -71,4 +104,4 @@ button:hover{
         content: var(--current-player, "X");
         opacity: .5;
     }
-}
+} */
