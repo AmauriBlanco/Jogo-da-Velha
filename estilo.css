@@ -35,7 +35,7 @@ button:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    
     background: radial-gradient(circle, #c75987 0%, #251b46 75%, #020024 100%);
 }
 
