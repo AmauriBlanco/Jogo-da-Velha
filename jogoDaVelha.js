@@ -5,8 +5,6 @@ const restartButton = gameOverDialog.querySelector('.restart-button',);
 const zerar = document.querySelector('.zerar',);
 
 
-
-
 boardTable.addEventListener('click', setPlayerMove);
 restartButton.addEventListener('click', startGame);
 zerar.addEventListener('click',
@@ -15,8 +13,6 @@ zerar.addEventListener('click',
     }
 );
 
-
-
 let currentPlayer,
     winner,
     isGameOver,
@@ -24,8 +20,6 @@ let currentPlayer,
     isXWinner,
     isOWinner;
     
-
-
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -49,8 +43,6 @@ function startGame(){
     hideGameOverDialog();
     clearBoard();
     jogadorAtual();
-    
-    
 }
 
 function clearBoard(){
@@ -73,6 +65,7 @@ function togglePlayer(){
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     boardTable.style.setProperty('--current-player', `"${currentPlayer}"`);
     jogadorAtual();
+    soundPlay();
     
 }
 
@@ -80,8 +73,10 @@ function checkGameOver(){
     winner = checkWinner();
     if(winner){
         showGameOverDialog(`Vitória do ${winner}`);
+        isGameOver = true;
     }else if(turn > 8){
         showGameOverDialog(`Deu Velha!`);
+        isGameOver = true;
     }
     placar();
 }
@@ -118,15 +113,25 @@ function jogadorAtual(){
 function placar(){
     let pontoX = document.getElementById('scoreX');  
     let pontoO = document.getElementById('scoreO');
-    if(isXWinner === true){
+    if(isXWinner){
         pontoX.innerHTML = Number(pontoX.innerHTML) + 1;
     }
-    if(isOWinner === true){
+    if(isOWinner){
         pontoO.innerHTML = Number(pontoO.innerHTML) + 1;
     }
     
 
 }
-
-
+function soundPlay(){
+    let audioWin = document.getElementById('win');
+    let audioClick = document.getElementById('click');
+    let audioVelha = document.getElementById('velha');
+        audioClick.play();
+        if(winner){
+            audioWin.play();
+        }
+        if(!winner && isGameOver){
+            audioVelha.play();
+        }        
+}
 startGame();
