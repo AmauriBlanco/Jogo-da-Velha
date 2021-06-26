@@ -126,12 +126,12 @@ function soundPlay(){
     let audioWin = document.getElementById('win');
     let audioClick = document.getElementById('click');
     let audioVelha = document.getElementById('velha');
-        audioClick.play();
-        if(winner){
-            audioWin.play();
-        }
-        if(!winner && isGameOver){
-            audioVelha.play();
-        }        
+    audioClick.play();
+    if(winner){
+        audioWin.play();
+    }
+    if(!winner && isGameOver){
+        audioVelha.play();
+    }        
 }
 startGame();
